@@ -1,21 +1,9 @@
-import { useState, useEffect } from "react";
+import { useNews } from "../hooks/useNews";
 import { Newsitem } from "./Newsitem";
 import "./NewsBoard.css";
 
 export const NewsBoard = ({ category }) => {
-    const [articles, setArticles] = useState([]);
-    const [currentDate, setCurrentDate] = useState("");
-
-    useEffect(() => {
-        let url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${import.meta.env.VITE_API_KEY}`;
-        fetch(url)
-            .then(response => response.json())
-            .then(data => setArticles(data.articles));
-
-        const date = new Date();
-        const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
-        setCurrentDate(date.toLocaleDateString("en-US", options));//es-ES
-    }, [category]);
+    const { articles, currentDate } = useNews(category);
 
     return (
         <div className="news-board-container">
@@ -33,5 +21,5 @@ export const NewsBoard = ({ category }) => {
                 ))}
             </div>
         </div>
-    )
-}
+    );
+};
