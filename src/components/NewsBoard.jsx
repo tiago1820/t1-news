@@ -1,15 +1,15 @@
 import { useNews } from "../hooks/useNews";
 import { Newsitem } from "./Newsitem";
-import "./NewsBoard.css";
+import styles from "./NewsBoard.module.css";
 
 export const NewsBoard = ({ category }) => {
     const { articles, currentDate } = useNews(category);
 
     return (
-        <div className="news-board-container">
-            <h2 className="text-center">News summary </h2>
-            <p className="text-center">{currentDate}</p>
-            <div className="news-grid">
+        <div className={styles.newsBoardContainer}>
+            <h2 className={styles.title}>News summary </h2>
+            <p className={styles.currentDate}>{currentDate}</p>
+            <div className={styles.newsGrid}>
                 {articles.map((news, index) => (
                     <Newsitem
                         key={index}
