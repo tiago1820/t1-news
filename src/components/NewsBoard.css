@@ -1,5 +1,6 @@
 .news-board-container {
     padding: 20px;
+    background-color: #f0eded;
 }
 
 h2 {
@@ -70,3 +71,19 @@ h2 {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
